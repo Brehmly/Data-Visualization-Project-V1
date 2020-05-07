@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .bar {fill: steelblue}
+    </style>
+</head>
+<h1>{{{Title}}}</h1>
+<body>
+<h2>Races</h2>
+<svg width="600" height="500"></svg>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+<canvas id="raceChart" width="400" height="400"></canvas>
+<script>
+var ctx = document.getElementById('raceChart').getContext('2d');
+let backgroundColors = [];
+let borderColors = [];
+    for(let i = 1; i<[{{{raceCount}}}].length + 1; i++){
+        backgroundColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 0.2');
+        borderColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 1');
+    }
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Human', 'Elf', 'Gnome', 'Half-Orc', 'Tiefling', 'Halfling', 'Half-Elf', 'Dwarf', 'Aasimar', 'Dragonborn', 'Aarakocra'],
+        datasets: [{
+            label: 'Races',
+            data: [{{{raceCount}}}],
+            backgroundColor: backgroundColors,
+            borderColor: borderColors,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        } 
+    }
+});
+</script>
+<p>I included the races because I wanted to see what was most popular and if there were any surpsises. For the most part, there were none. Humans and Elves were among the most played races and that was my assumption going into this. What I did not expect was the popularity of the Aasimar race.
+    The popularity of races like Humans and Elves, Humans especially, is largely because they are the most popular races in fantasy media otherwise so players want to play those the most. Aasimar however, are not common to fantasy media, and were introduced in the Dungeon & Dragons 2e Planescape Setting.
+    The reason why I think they are popular is simply because they are cool. They are angelic beings, possesing holy power of some sort. They don't provide more stats than other races, and the other class features, while definitely good, don't provide great power advantages when compared to the other
+    races. Before I started this project, I knew that this could be a possiblity, that certain things are played more simply because they are more interesting, which makes sense because we are playing a game.
+</p>
+<canvas id="classChart" width="400" height="400"></canvas>
+<script>
+    let backgroundColors2 = [];
+    let borderColors2 = [];
+    for(let i = 1; i<[{{{classCount}}}].length + 1; i++){
+        backgroundColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 0.2');
+        borderColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 1');
+    }
+var ctx = document.getElementById('classChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Artificer', 'Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Blood Hunter', 'Rogue', 'Warlock', 'Wizard', 'Other'],
+        datasets: [{
+            label: 'Classes',
+            data: [{{{classCount}}}],
+            backgroundColor: backgroundColors,
+            borderColor: borderColors,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+<p>
+    Going into this, I assumed that fighter and barbarian were going to be the most popular classes with classes like warlock or druid being the least played. I was correct about the fighter and barbarian both being among the most popular classes, but Warlock, Ranger, and Rogue
+    were also very popular. The reason why these classes are popular is because they are easy to play and to relate to, while still offering subclasses that offer ways to expand into nontraditional ways of playing. Fighters and Barbarians are traditionally classes that 
+    seek to solve combat through expertise with martial weapons, but subclasses like Eldritch Knight for Fighter, or the Totem Warrior or Storm Herald Paths for Barbarian bring variety to what otherwise might seem like boring classes. This flexibility in play can be a reason
+    why people are drawn to these classes when compared to others. I thought that Warlock would be unpopular for the opposite reason of Fighter or Barbarian, they tend to be much more complex characters to play. Warlocks are given power for otherworldy beings, which can take the
+    form of an Eldritch horror or an Archfey from the fey wilds, among others. These sources of power are often abstract, and come with a price that the Warlock either has already paid or must pay in the future, they are receiving power from these beings for something in return,
+    it could be simply spreading the word of whatever they made their pact with, or something more important like their soul. But the things that make Warlocks abstract, complex, and mysterious classes are the same things that draw players to this class. Warlocks have great 
+    potential to be incredibly interesting characters capable of weilding power of literal gods at the tips of their hands. Looking at the class from that perspective explains why Warlock is so popular.
+</p>
+<canvas id="rangerPieChart" width="400" height="400"></canvas>
+<script>
+    let backgroundColors3 = [];
+    let borderColors3 = [];
+    for(let i = 1; i<[{{{rangerCount}}}].length + 1; i++){
+        backgroundColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 0.2');
+        borderColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 1');
+    }
+    var ctx = document.getElementById('rangerPieChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Ranger', 'Revised Ranger'],
+            datasets: [{
+                label: 'Ranger vs. Revised Ranger',
+                data: [{{{rangerCount}}}],
+                backgroundColor: backgroundColors,
+                borderColor: borderColors,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: false
+        }
+    })
+</script>
+<p>
+    I included this pie chart because I wanted to see which of the Rangers was more popular, the originally released Ranger or the revised Ranger. The ranger class on release of Dungeons & Dragons 5e was underpowered and many people saw other classes as being able to 
+    fill the role the Ranger occupied, normally a stealthy archer or someone who is good with light weapons, and Wizards of the Coast seemed to agree. To fix this, they release the Revised Ranger through their Unearthed Arcana releases, which sought to fix the Rangers
+    balance issues. The pie chart shows the original Ranger being the more popular of the two, which is actually reasonable despite one being better than the other. Many of the responses stating that they played an original Ranger over the revised Ranger could have been
+    played before the Revised Ranger existed, so of course they would not have been able to switch to that class. The other reason is that if a new player buys the book brand new right now, they receive the original Ranger class, not the revised one. So if a player wants 
+    to play the Ranger class, they will likely choose the original because its already there and they don't have to put any extra thought into it.
+</p>
+<div id='matrixtable'></div>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<style>
+    body {font-family: monospace; line-height: 160%; font-size: 18px; margin: 0;}
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    th, td {
+  padding: 1rem;
+  text-align: right;
+  border: 1px dotted #ccc;
+}
+</style>
+
+<!--{{#each alignmentMatrix}}
+{{this}}<br/>
+{{/each}}-->
+<script>
+    /*let alignmentMatrix = [{{alignmentMatrix}}];
+    console.log(alignmentMatrix);
+    let lgString = [{{{lg}}}].toString();
+    console.log(lgString);
+    let lg = [{{{lg}}}],le = [{{{le}}}], ln = [{{{ln}}}], ng = [{{{ng}}}], n = [{{{n}}}], ne = [{{{ne}}}], cg = [{{{cg}}}], cn = [{{{cn}}}], ce = [{{{ce}}}];
+    lg[0] = lg[0].toString();
+    ln[0] = ln[0].toString();
+    le[0] = le[0].toString();
+    ng[0] = ng[0].toString();
+    n[0] = n[0].toString();
+    ne[0] = ne[0].toString();
+    cg[0] = cg[0].toString();
+    cn[0] = cn[0].toString();
+    ce[0] = ce[0].toString();
+    alignmentMatrix.push(["{{{titles}}}"], lg, ln, le, ng, n, ne, cg, cn, ce);
+    let data = alignmentMatrix;*/
+    let data = [
+    ["","Artificer", "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Blood Hunter", "Rogue", "Warlock", "Wizard", "Other"],
+    ["Lawful Good", 1,  4,  5, 52, 10, 34, 11, 40, 16,  0,  6,  5, 12, 9],
+    ["Lawful Neutral", 0, 18,  2, 36,  5, 50, 15, 42, 27,  0, 15, 12, 12, 5],
+    ["Lawful Evil", 0, 0, 1, 1, 2, 2, 2, 5, 1, 0, 9, 5, 3, 2],
+    ["Neutral Good", 4, 19, 18, 51, 43, 40, 31, 29, 30,  1, 23, 20, 32, 25],
+    ["Neutral", 1, 14,  2, 4, 16, 17, 13,  4, 19, 0, 29, 14, 11, 6],
+    ["Neutral Evil", 0, 0, 5, 2,  0, 11, 3, 2, 4, 0, 11, 14, 4, 2],
+    ["Chaotic Good", 4, 61, 38, 55, 15, 72, 34, 23, 49,  0, 68, 40, 45, 37],
+    ["Chaotic Neutral", 3, 51, 36, 17, 21, 89, 20, 12, 39,  1, 95, 57, 44, 55],
+    ["Chaotic Evil", 0, 4, 1, 17, 1, 9, 0, 3, 1,  0, 5, 5, 1, 4]]
+    console.log(data);
+    // selecting the body
+    var body = d3.select("#matrixtable");
+
+    // append a table element to the body
+    var table = body.append("table");
+
+
+    // append entering rows to the table via data-join (Since selectAll is called on the selected table element, it establishes a new parent node of table instead of the default html)
+    var tr = table.selectAll("tr")
+            .data(data)
+            .enter()
+            .append("tr");
+
+    // append entering cells to each row
+    var td = tr.selectAll("td")
+            .data(function(d) { return d; })
+            .enter()
+            .append("td");
+
+
+    // add content from the dataset
+    var content = td.text(function(d) { return d; });
+
+    // manipulate colour of specific cells and rows: j is row ,and i is column
+    //td.style("color", function(d, i, j) { return (j<2 && i<2 ) ? null : "red"; });
+</script>
+<p>This is one of the most interesting pieces of data for this whole project, but also one of the most frustrating. I will explain what can be learned from a matrix table like this, and the frustrations that this table caused will be explained in the <a href='/future'>Future</a>
+page of this. Matrix tables like these can help show the relationship between two different, but still connected, pieces of data, and in this case it was Alignment and Class. I knew going into this that there were certain classes that lended themselves to specific alignments,
+like Rogues leaning more towards the chaotic alingments and Paladins leaning more towards the good alignments. I wanted to see if my thoughts were correct, and if there were any surprises that I found. Overall, there was nothing surprising for specific classes, but it seems 
+that no matter the class, players trended towards the chaotic alignments. Alignment is typically more tied down to who the player is as a person or who their character is as a person, it is inherintly a personal attribute, so it is hard to say why this trend exists. I could 
+say that the chaotic alignments are simply more fun to play, but as much fun can come from characters who are lawful, or those who are neither.
+</p>
+</body>
+</html>

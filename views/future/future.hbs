@@ -1,0 +1,23 @@
+{{title}}
+
+<h2>Moving Forward, what is coming next?</h2>
+
+<p>
+    There are some goals I have for the future of this project, as I plan on continuing to work on this in the future and eventually have it as part of my portfolio. There is a lot of work that needs to be done before that happens though, and most of that work
+    involves a complete rewrite of the entire application. This need for a rewrite comes from two things, the extremely large functions that were almost solely if-statements that comprised all of my back-end logic for creating the data, and difficulty in working with Handlebars
+    as a view engine. I plan on fixing the if statement problem by utilizing Mongo's count functionality to replace my overuse of if-statements, either using the console or in my own code. This will clean things up significantly as well as make my code much easier to go through.
+    The next thing, and the most important thing from my point of view is the switch to a view engine that is not Handlebars. Handlebars gave me significant trouble when I was trying to pass arrays, which is the data type I needed to use to display my data properly, because
+    it would destroy the array structure and not preserve data types within the array. For the charts that were using a 1-dimensional array (all of them outside of the matrix table), I was able to get around that by placing array brackets around the incoming array to preserve
+    the structure. For the 2-dimensional array that was used for the matrix table, this was not the case. No matter what I did, the structure of the array was destroyed and all data types except numbers were stripped, causing errors in JavaScript and the matrix table to not
+    be displayed. As such, the matrix table is currently using hard-coded data that was pulled from console.logs. I plan on moving to other ways of displaying my data, mainly Python or R, as they are much better suited for what I am doing.
+</p>
+
+<h2>After the code rewrite</h2>
+<p>There are three main things that I hope to accomplish before I put this in my portfolio but after the code rewrite, and those are make both the website and the data more presentable, add more data and analysis to both games, as well as expanding my game selection to other games
+    outside of Dungeons & Dragons and Pathfinder, and try to make the website as accessible as possible. It is no surpsise that this website is not the best looking, some of that comes from the amount of wrangling that I had to do with Handlebars to get my data to show 
+    properly, effectively destroying the amount of time I had to work on the website, and this being my first foray into data visualization. The charts look fine outside of the selections turning black on hover, but tying down the size and the styles could be better. 
+    The next, and most exciting for me, the introduction of more data/analysis for what I already have as well as other games. There are more things to learn from Dungeons & Dragons and Pathfinder, but I don't want to focus on those until my backend is fixed. I also plan on adding
+    more games to this like Call of Cthulhu, Starfinder, or GURPS to name a few. There are many things to learn from these games, and I am excited at the prospect that I may be able to do them in the future. The last thing that needs to be done is actually something that will
+    be done throughout the rework of this project, and it is making it accessible for all viewers. While the way I am presenting my data is inherintly visual, the implications of the data and what we can learn from it shouldn't be relegated to just those who aren't visually impaired.
+    I will accomplish this by utilizing built in HTML accessibility features as well as ensuring that my analysis of the data covers everything that could potentially be learned.
+</p>

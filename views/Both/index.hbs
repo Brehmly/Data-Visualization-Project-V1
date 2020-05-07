@@ -1,0 +1,77 @@
+<h1>{{{Title}}}</h1>
+<style>
+    #dndCharacterPieChart{
+        float: left
+    }
+</style>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+<canvas id="dndCharacterPieChart" width="400" height="400"></canvas>
+<script>
+    let backgroundColors = [];
+    let borderColors = [];
+    for(let i = 1; i<[{{{dndClasses}}}].length + 1; i++){
+        backgroundColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 0.2');
+        borderColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 1');
+    }
+    var ctx = document.getElementById('dndCharacterPieChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Artificer', 'Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 
+            'Paladin', 'Ranger', 'Blood Hunter', 'Rogue', 'Warlock', 'Wizard', 'Other'],
+            datasets: [{
+                label: 'D&D Characters',
+                data: [{{{dndClasses}}}],
+                backgroundColor: backgroundColors,
+                borderColor: borderColors,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: false
+        }
+    })
+</script>
+<style>
+    #pathfinderCharacterPieChart{
+        float: right
+    }
+</style>
+
+<canvas id="pathfinderCharacterPieChart" width="400" height="400" float ="right"></canvas>
+<script>
+    let backgroundColors2 = [];
+    let borderColors2 = [];
+    for(let i = 1; i<[{{{pathClasses}}}].length + 1; i++){
+        backgroundColors2.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 0.2');
+        borderColors2.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 1');
+    }
+    console.log(backgroundColors);
+    var ctx = document.getElementById('pathfinderCharacterPieChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Druid', 'Bard', 'Wizard', 'Sorcerer', 'Barbarian', 'Witch', 
+            'Cleric', 'Fighter', 'Rogue', 'Magus', 'Inquisitor', 'Warpriest', 
+            'Gunslinger', 'Paladin', 'Alchemist', 'Swashbuckler', 'Ranger', 'Monk', 
+            'Oracle', 'Hunter', 'Shaman', 'Cavalier', 'No name', 'Other'],
+            datasets: [{
+                label: 'Pathfinder Characters',
+                data: [{{{pathClasses}}}],
+                backgroundColor: backgroundColors2,
+                borderColor: borderColors2,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: false
+        }
+    });
+</script>
+<p>
+    These pie charts help show the differences between the games, but also the similarties in how players might play them. The same classes that are popular in Dungeons & Dragons (except the Artificer) are popular in Pathfinder, but Pathfinder has many more classes avialable
+    for play. Even in the Pie Chart, you can see that there is still a large chunk of classes that have significant play rates, but the same can't be said for Dungeons & Dragons. This comes down to the vision of both of the games. Dungeons & Dragons is much more focused, it 
+    tries to ensure that all of the options are balanced and playable for its characters. Pathfinder however, throws caution to the wind and lets players choose whatever they want, often with the risk of making a character terribly unoptimized and unfun to play. I am playing
+    an Experimental Gnome Gunsmith Gunslinger in a campaign at the moment. This was the first time I had played Pathfinder, and I was not aware of the possibility of messing up my character as much as I initally did. With the amount of options Pathfinder gave me, I selected
+    what was interesting to me, rather than select what my class needed to have to be relevant. This problem is not something that exists with Dungeons & Dragons because of the focus the creators put into making it a tight experience.
+</p>

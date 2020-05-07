@@ -1,0 +1,132 @@
+<h1>{{{Title}}}</h1>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+
+<h2>Races</h2>
+<svg width="600" height="500"></svg>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+<canvas id="raceChart" width="400" height="400"></canvas>
+<script>
+    let backgroundColors = [];
+    let borderColors = [];
+    for(let i = 1; i<[{{{races}}}].length + 1; i++){
+        backgroundColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 0.2');
+        borderColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 1');
+    }
+var ctx = document.getElementById('raceChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Human', 'Elf', 'Gnome', 'Half-Orc', 'Tiefling', 'Halfling', 'Half-Elf', 'Dwarf', 'Aasimar', 'Other'],
+        datasets: [{
+            label: 'Races',
+            data: [{{{races}}}],
+            backgroundColor: backgroundColors,
+            borderColor: borderColors,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responseive: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+<p>
+    Pathfinder and Dungeons & Dragons on the outside are very similar games. They are both D20 based fantasy RPGs, and Pathfinder is even based on the mechanics of Dungeons & Dragons 3.5 (5 is the current version). On a gameplay level, however, they differ greatly. Pathfinder
+    is more compelx that Dungeons & Dragons, both in its play and its character creation. Even with their differences, there are bound to be similarities between the two games, and with this race chart we can see that both games share Humans and Aasimar being the most popular races.
+    I would assume that the Aasimar race is played in Pathfinder much for the same reasons as Dungeons & Dragons, but in Pathfinder there are many more options to expand on a players Aasimar power fantasy. There are more classes, feats, and overall options given to players in
+    Pathfinder that might give new, more interesting ways to play Aasimar.
+</p>
+<h2>Other Races</h2>
+<svg width="600" height="500"></svg>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+<canvas id="otherRaceChart" width="400" height="400"></canvas>
+<script>
+    let backgroundColors2 = [];
+    let borderColors2 = [];
+    for(let i = 1; i<[{{{otherRaces}}}].length + 1; i++){
+        backgroundColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 0.2');
+        borderColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 1');
+    }
+var ctx = document.getElementById('otherRaceChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Ratfolk', 'Akashic', 'Goblin', 'Changeling', 'Drow', 'Orc', 'Vampire'],
+        datasets: [{
+            label: 'Other Races',
+            data: [{{{otherRaces}}}],
+            backgroundColor: backgroundColors,
+            borderColor: borderColors,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        },
+        
+    }
+});
+</script>
+<p>
+    I included this chart because there were many more races in Pathfinder that I didn't feel were statistically siginifcant enough to show in the previous chart, but still said were interesting enough to beg their own chart. This chart produced possibly the most surprising 
+    conclusion, the lack of play for the Vampire race. Vampires are a fantasy staple, having been in many cultures mythology for hundreds, if not thousands of years. They have been the target of many works of media and have otherwise stayed relevant for a fantasy race. Given 
+    all of that, I would think that if Vampires were a playable option, players would gravitate towards it. They are popular, cool, and offer very interesting ways of playing the game. The two reasons why Vampires might not be played often that I can come up with is that
+    they could have come near the end of the release of Pathfinder, or that Vampires tend to gravitate towards evil alignments. Evil alignments in games are hard to play around unless you are playing an evil campaign because the goals of an evil player character often go
+    against what the good or even neutral characters want to do. No one wants to try and play two campaigns at once, so evil characters are typically relegated to evil campaigns.
+</p>
+<h2>Classes</h2>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+<div width = "400" width = "400"><canvas id="classChart" width="400" height="400"></canvas></div>
+<script>
+    let backgroundColors3 = [];
+    let borderColors3 = [];
+    for(let i = 1; i<[{{{classes}}}].length + 1; i++){
+        backgroundColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 0.2');
+        borderColors.push('rgba(' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', ' + Math.floor(Math.random()*256).toString() + ', 1');
+    }
+var ctx = document.getElementById('classChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Druid', 'Bard', 'Wizard', 'Sorcerer', 'Barbarian', 'Witch', 'Cleric', 'Fighter', 'Rogue', 'Magus', 'Inquisitor', 'Warpriest', 'Gunslinger', 'Paladin', 'Alchemist', 'Swashbuckler', 'Ranger', 'Monk', 'Oracle', 'Hunter', 'Shaman', 'Cavalier', 'No name', 'Other'],
+        datasets: [{
+            label: 'Classes',
+            data: [{{{classes}}}],
+            backgroundColor: backgroundColors,
+            borderColor: borderColors,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responseive: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+<p>
+    While this chart has many classes in it, and room for many more as shown by the other column being over twice the size as any of the other columns, this helps show what Pathfinder is best at: player choice. I look at this chart as a way of seeing the wide diversity
+    in which you can play a character in pathfinder as compared to trying to find the most popular class. There are many classes in Pathfinder, the makers of the game have released more over the course of the game because it has been around for longer than Dungeons & Dragons,
+    giving players more ways to play the game. It is also important to note that these extra ways of playing the game, while generally not as popular as some of the other classes, seem to be able to stand on their own. These classes are able to offer compelling enough 
+    gameplay differences from each other to justify their existience. 
+</p>
